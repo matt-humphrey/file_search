@@ -55,7 +55,7 @@ defmodule FileSearch do
   def by_extension(folder, opts \\ []) do
     output = all(folder)
     |> Enum.reduce(%{}, fn file, acc ->
-      [_ , file_extension] = String.split(file, ".")
+      [_ , file_extension] = String.sgit pplit(file, ".")
       Map.update(acc, file_extension, [file], fn list -> [file | list] end)
     end)
     IO.puts "#{inspect(output)}"
